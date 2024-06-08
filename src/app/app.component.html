@@ -1,0 +1,18 @@
+<h1>Auth</h1>
+
+@if (authService.currentUserSig()==null) {
+  <div>
+    <a routerLink="/login">Login</a>
+    <a routerLink="/register">Register</a>
+  </div>
+}
+
+
+@if (authService.currentUserSig()) {
+  <div>
+    <h2><strong>{{authService.currentUserSig()?.username}}</strong></h2>
+    <span (click)="logout()">Logout</span>
+  </div>
+}
+
+<router-outlet></router-outlet>
